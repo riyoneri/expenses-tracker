@@ -15,9 +15,14 @@ type AllExpensesScreenProperties = CompositeScreenProps<
 >;
 
 export default function AllExpensesScreen({}: AllExpensesScreenProperties) {
+  const total = EXPENSES.reduce(
+    (totalPrice, expense) => totalPrice + expense.budget,
+    0,
+  );
+
   return (
     <ScreenWrapper style={styles.root}>
-      <TotalContainer label="Total" total={240.74} />
+      <TotalContainer label="Total" total={total} />
       <ExpensesList expenses={EXPENSES} />
     </ScreenWrapper>
   );

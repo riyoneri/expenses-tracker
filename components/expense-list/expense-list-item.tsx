@@ -6,7 +6,10 @@ import getFormattedDate from "../../util/date";
 
 export default function ExpenseListItem({ name, budget, date }: Expense) {
   return (
-    <Pressable onPress={() => {}} style={styles.rootContainer}>
+    <Pressable
+      onPress={() => {}}
+      style={({ pressed }) => [styles.rootContainer, pressed && styles.pressed]}
+    >
       <View style={styles.innerContainer}>
         <Text style={[styles.name, styles.whiteText]}>{name}</Text>
         <Text style={styles.whiteText}>{getFormattedDate(date)}</Text>
@@ -19,6 +22,9 @@ export default function ExpenseListItem({ name, budget, date }: Expense) {
 }
 
 const styles = StyleSheet.create({
+  pressed: {
+    opacity: 0.7,
+  },
   rootContainer: {
     padding: 15,
     borderRadius: 5,
