@@ -14,7 +14,7 @@ export default function TotalContainer({
   return (
     <View style={styles.rootContainer}>
       <Text style={styles.labelText}>{label}</Text>
-      <Text style={styles.totalText}>${total}</Text>
+      <Text style={styles.totalText}>${total.toFixed(2)}</Text>
     </View>
   );
 }
