@@ -1,8 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  StackScreenProps,
+  createStackNavigator,
+} from "@react-navigation/stack";
 
+import AddExpenseButton from "./components/add-expense-button";
 import { GlobalStyles } from "./constants/styles";
 import AllExpensesScreen from "./screens/all-expenses.screen";
 import ManageExpense from "./screens/manage-expense";
@@ -21,7 +25,9 @@ export type TabParameterList = {
 const Tab = createBottomTabNavigator<TabParameterList>();
 const Stack = createStackNavigator<StackParameterList>();
 
-function ExpensesOverview() {
+function ExpensesOverview({
+  navigation,
+}: StackScreenProps<StackParameterList>) {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -42,6 +48,13 @@ function ExpensesOverview() {
         sceneStyle: {
           backgroundColor: GlobalStyles.colors.primary700,
         },
+        headerRight: () => (
+          <AddExpenseButton
+            color="white"
+            name="add"
+            onPress={() => navigation.push("ManageExpense")}
+          />
+        ),
       }}
     >
       <Tab.Screen
