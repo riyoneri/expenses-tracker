@@ -85,7 +85,12 @@ function ExpensesOverview({
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+          headerTintColor: "white",
+        }}
+      >
         <Stack.Screen
           options={{
             headerShown: false,
@@ -93,7 +98,13 @@ export default function App() {
           name="ExpensesOverview"
           component={ExpensesOverview}
         />
-        <Stack.Screen name="ManageExpense" component={ManageExpense} />
+        <Stack.Screen
+          name="ManageExpense"
+          component={ManageExpense}
+          options={{
+            presentation: "modal",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
