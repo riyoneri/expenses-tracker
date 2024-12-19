@@ -2,16 +2,17 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { GlobalStyles } from "../../constants/styles";
 import Expense from "../../models/expense";
+import getFormattedDate from "../../util/date";
 
 export default function ExpenseListItem({ name, budget, date }: Expense) {
   return (
     <Pressable onPress={() => {}} style={styles.rootContainer}>
       <View style={styles.innerContainer}>
         <Text style={[styles.name, styles.whiteText]}>{name}</Text>
-        <Text style={styles.whiteText}>{new Date(date).toISOString()}</Text>
+        <Text style={styles.whiteText}>{getFormattedDate(date)}</Text>
       </View>
       <View style={styles.totalContainer}>
-        <Text style={styles.total}>{budget}</Text>
+        <Text style={styles.total}>{budget.toFixed(2)}</Text>
       </View>
     </Pressable>
   );
