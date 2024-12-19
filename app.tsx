@@ -14,7 +14,9 @@ import RecentExpensesScreen from "./screens/recent-expenses.screen";
 
 export type StackParameterList = {
   ExpensesOverview: undefined;
-  ManageExpense: undefined;
+  ManageExpense?: {
+    expenseId: string;
+  };
 };
 
 export type TabParameterList = {
