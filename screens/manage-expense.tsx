@@ -38,6 +38,26 @@ export default function ManageExpense({
   }
 
   function confirmHandler() {
+    if (isEditing) {
+      dispatch(
+        expenseActions.updateExpense({
+          id: expenseId,
+          updates: {
+            budget: +(Math.random() * 100).toFixed(2),
+            date: new Date("2024-12-15").toISOString(),
+            name: "Test!!!!",
+          },
+        }),
+      );
+    } else {
+      dispatch(
+        expenseActions.addExpense({
+          budget: +(Math.random() * 100).toFixed(2),
+          date: new Date("2024-12-15").toISOString(),
+          name: "New item",
+        }),
+      );
+    }
     navigation.goBack();
   }
 

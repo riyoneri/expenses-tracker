@@ -13,7 +13,9 @@ export default function RecentExpensesScreen() {
     const today = new Date();
     const past7days = getDateMinusDays(today, 7);
 
-    return past7days < new Date(expense?.date);
+    return (
+      past7days <= new Date(expense.date) && new Date(expense.date) <= today
+    );
   });
 
   let total = 0;
