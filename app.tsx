@@ -7,7 +7,7 @@ import {
 } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 
-import IconButton from "./components/icon-button";
+import IconButton from "./components/ui/icon-button";
 import { GlobalStyles } from "./constants/styles";
 import AllExpensesScreen from "./screens/all-expenses.screen";
 import ManageExpense from "./screens/manage-expense";
