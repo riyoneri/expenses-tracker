@@ -1,16 +1,66 @@
-import Expense from "../models/expense";
+import { Expense } from "../api";
 
-const EXPENSES = [
-  new Expense("1", "Groceries", new Date(2024, 10, 15), 150),
-  new Expense("2", "Rent", new Date(2024, 9, 1), 1200),
-  new Expense("3", "Utilities", new Date(2024, 10, 5), 200),
-  new Expense("4", "Internet", new Date(2024, 10, 10), 60),
-  new Expense("5", "Transportation", new Date(2024, 10, 20), 100),
-  new Expense("6", "Dining Out", new Date(2024, 10, 25), 80),
-  new Expense("7", "Entertainment", new Date(2024, 10, 30), 50),
-  new Expense("8", "Gym Membership", new Date(2024, 9, 15), 40),
-  new Expense("9", "Medical", new Date(2024, 10, 12), 300),
-  new Expense("10", "Insurance", new Date(2024, 9, 20), 250),
+const EXPENSES: Expense[] = [
+  {
+    id: "1",
+    name: "Groceries",
+    date: new Date(2024, 12, 15).toISOString(),
+    budget: 150,
+  },
+  {
+    id: "2",
+    name: "Rent",
+    date: new Date(2024, 9, 1).toISOString(),
+    budget: 1200,
+  },
+  {
+    id: "3",
+    name: "Utilities",
+    date: new Date(2024, 12, 5).toISOString(),
+    budget: 200,
+  },
+  {
+    id: "4",
+    name: "Internet",
+    date: new Date(2024, 12, 10).toISOString(),
+    budget: 60,
+  },
+  {
+    id: "5",
+    name: "Transportation",
+    date: new Date(2024, 12, 20).toISOString(),
+    budget: 100,
+  },
+  {
+    id: "6",
+    name: "Dining Out",
+    date: new Date(2024, 12, 25).toISOString(),
+    budget: 80,
+  },
+  {
+    id: "7",
+    name: "Entertainment",
+    date: new Date(2024, 12, 30).toISOString(),
+    budget: 50,
+  },
+  {
+    id: "8",
+    name: "Gym Membership",
+    date: new Date(2024, 9, 15).toISOString(),
+    budget: 40,
+  },
+  {
+    id: "9",
+    name: "Medical",
+    date: new Date(2024, 12, 12).toISOString(),
+    budget: 300,
+  },
+  {
+    id: "10",
+    name: "Insurance",
+    date: new Date(2024, 9, 20).toISOString(),
+    budget: 250,
+  },
 ];
 
 export default EXPENSES;
