@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
+import { Expense } from "../api";
 import EXPENSES from "../data/expenses";
-import Expense from "../models/expense";
 
 interface InitialState {
   expenses: Expense[];

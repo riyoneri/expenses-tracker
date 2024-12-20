@@ -1,10 +1,10 @@
 import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
+import { Expense } from "../../api";
 import { StackParameterList } from "../../app";
 import { GlobalStyles } from "../../constants/styles";
-import Expense from "../../models/expense";
-import getFormattedDate from "../../util/date";
+import { getFormattedDate } from "../../util/date";
 
 export default function ExpenseListItem({ id, name, budget, date }: Expense) {
   const navigation = useNavigation<NavigationProp<StackParameterList>>();
@@ -18,7 +18,7 @@ export default function ExpenseListItem({ id, name, budget, date }: Expense) {
     >
       <View style={styles.innerContainer}>
         <Text style={[styles.name, styles.whiteText]}>{name}</Text>
-        <Text style={styles.whiteText}>{getFormattedDate(date)}</Text>
+        <Text style={styles.whiteText}>{getFormattedDate(new Date(date))}</Text>
       </View>
       <View style={styles.totalContainer}>
         <Text style={styles.total}>{budget.toFixed(2)}</Text>

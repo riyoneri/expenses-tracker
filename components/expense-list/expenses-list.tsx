@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet } from "react-native";
 
-import Expense from "../../models/expense";
+import { Expense } from "../../api";
 import ExpenseListItem from "./expense-list-item";
 
 interface ExpensesListProperties {
