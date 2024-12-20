@@ -3,17 +3,17 @@ import { Pressable, StyleSheet } from "react-native";
 
 type IoniconsIconNames = keyof typeof Ionicons.glyphMap;
 
-interface AddExpenseButtonProperties {
+interface IconButtonProperties {
   name: IoniconsIconNames;
   onPress: () => void;
   color: string;
 }
 
-export default function AddExpenseButton({
+export default function IconButton({
   color,
   name,
   onPress,
-}: AddExpenseButtonProperties) {
+}: IconButtonProperties) {
   return (
     <Pressable
       style={({ pressed }) => pressed && styles.pressed}

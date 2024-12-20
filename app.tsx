@@ -5,8 +5,9 @@ import {
   StackScreenProps,
   createStackNavigator,
 } from "@react-navigation/stack";
+import { StatusBar } from "expo-status-bar";
 
-import AddExpenseButton from "./components/add-expense-button";
+import IconButton from "./components/icon-button";
 import { GlobalStyles } from "./constants/styles";
 import AllExpensesScreen from "./screens/all-expenses.screen";
 import ManageExpense from "./screens/manage-expense";
@@ -51,7 +52,7 @@ function ExpensesOverview({
           backgroundColor: GlobalStyles.colors.primary700,
         },
         headerRight: () => (
-          <AddExpenseButton
+          <IconButton
             color="white"
             name="add"
             onPress={() => navigation.push("ManageExpense")}
@@ -86,28 +87,31 @@ function ExpensesOverview({
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
-          headerTintColor: "white",
-        }}
-      >
-        <Stack.Screen
-          options={{
-            headerShown: false,
+    <>
+      <StatusBar style="light" />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
+            headerTintColor: "white",
           }}
-          name="ExpensesOverview"
-          component={ExpensesOverview}
-        />
-        <Stack.Screen
-          name="ManageExpense"
-          component={ManageExpense}
-          options={{
-            presentation: "modal",
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+        >
+          <Stack.Screen
+            options={{
+              headerShown: false,
+            }}
+            name="ExpensesOverview"
+            component={ExpensesOverview}
+          />
+          <Stack.Screen
+            name="ManageExpense"
+            component={ManageExpense}
+            options={{
+              presentation: "modal",
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }

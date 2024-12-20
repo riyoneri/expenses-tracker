@@ -6,13 +6,13 @@ import { GlobalStyles } from "../../constants/styles";
 import Expense from "../../models/expense";
 import getFormattedDate from "../../util/date";
 
-export default function ExpenseListItem({ name, budget, date }: Expense) {
+export default function ExpenseListItem({ id, name, budget, date }: Expense) {
   const navigation = useNavigation<NavigationProp<StackParameterList>>();
 
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate("ManageExpense");
+        navigation.navigate("ManageExpense", { expenseId: id });
       }}
       style={({ pressed }) => [styles.rootContainer, pressed && styles.pressed]}
     >
