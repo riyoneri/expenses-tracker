@@ -1,13 +1,20 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, Text } from "react-native";
 
 import { Expense } from "../../api";
 import ExpenseListItem from "./expense-list-item";
 
 interface ExpensesListProperties {
   expenses: Expense[];
+  fallbackText: string;
 }
 
-export default function ExpensesList({ expenses }: ExpensesListProperties) {
+export default function ExpensesList({
+  expenses,
+  fallbackText,
+}: ExpensesListProperties) {
+  if (expenses.length === 0)
+    return <Text style={styles.infoText}>{fallbackText}</Text>;
+
   return (
     <FlatList
       style={styles.rootContainer}
@@ -26,5 +33,11 @@ const styles = StyleSheet.create({
   },
   contentStyles: {
     gap: 15,
+  },
+  infoText: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    marginTop: 32,
   },
 });

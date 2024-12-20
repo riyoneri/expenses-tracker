@@ -24,7 +24,10 @@ export default function RecentExpensesScreen() {
   return (
     <ScreenWrapper style={styles.root}>
       <TotalContainer label="Last 7 Days" total={total} />
-      <ExpensesList expenses={recentExpenses} />
+      <ExpensesList
+        expenses={recentExpenses}
+        fallbackText="No expenses registered for the last 7 days."
+      />
     </ScreenWrapper>
   );
 }

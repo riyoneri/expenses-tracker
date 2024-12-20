@@ -1,14 +1,13 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { Expense } from "../api";
-import EXPENSES from "../data/expenses";
 
 interface InitialState {
   expenses: Expense[];
 }
 
 const initialState: InitialState = {
-  expenses: EXPENSES,
+  expenses: [],
 };
 
 const expenseSlice = createSlice({

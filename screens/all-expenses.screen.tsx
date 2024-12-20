@@ -14,7 +14,10 @@ export default function AllExpensesScreen() {
   return (
     <ScreenWrapper style={styles.root}>
       <TotalContainer label="Total" total={total} />
-      <ExpensesList expenses={expenses} />
+      <ExpensesList
+        expenses={expenses}
+        fallbackText="No registered expenses found"
+      />
     </ScreenWrapper>
   );
 }
