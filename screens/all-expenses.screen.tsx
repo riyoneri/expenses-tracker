@@ -1,29 +1,20 @@
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { CompositeScreenProps } from "@react-navigation/native";
-import { StackScreenProps } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 
-import { StackParameterList, TabParameterList } from "../app";
 import ExpensesList from "../components/expense-list/expenses-list";
 import ScreenWrapper from "../components/screen-wrapper";
 import TotalContainer from "../components/total-container";
-import EXPENSES from "../data/expenses";
+import { useAppSelector } from "../hooks/store-hooks";
 
-type AllExpensesScreenProperties = CompositeScreenProps<
-  BottomTabScreenProps<TabParameterList, "AllExpenses">,
-  StackScreenProps<StackParameterList>
->;
+export default function AllExpensesScreen() {
+  const expenses = useAppSelector((state) => state.expenses);
 
-export default function AllExpensesScreen({}: AllExpensesScreenProperties) {
-  const total = EXPENSES.reduce(
-    (totalPrice, expense) => totalPrice + expense.budget,
-    0,
-  );
+  let total = 0;
+  for (const expense of expenses) total += expense.budget;
 
   return (
     <ScreenWrapper style={styles.root}>
       <TotalContainer label="Total" total={total} />
-      <ExpensesList expenses={EXPENSES} />
+      <ExpensesList expenses={expenses} />
     </ScreenWrapper>
   );
 }
