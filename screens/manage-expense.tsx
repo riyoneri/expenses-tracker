@@ -1,11 +1,13 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import { useLayoutEffect } from "react";
 import { StyleSheet, View } from "react-native";
+import { useDispatch } from "react-redux";
 
 import { StackParameterList } from "../app";
 import Button from "../components/ui/button";
 import IconButton from "../components/ui/icon-button";
 import { GlobalStyles } from "../constants/styles";
+import { expenseActions } from "../store/expenses-slice";
 
 type ManageExpenseScreenProperties = StackScreenProps<
   StackParameterList,
@@ -18,6 +20,7 @@ export default function ManageExpense({
 }: ManageExpenseScreenProperties) {
   const expenseId = route.params?.expenseId;
   const isEditing = !!expenseId;
+  const dispatch = useDispatch();
 
   useLayoutEffect(() => {
     navigation.setOptions({ title: `${isEditing ? "Edit" : "Add"} Expense` });
@@ -28,6 +31,9 @@ export default function ManageExpense({
   }
 
   function deleteExpenseHandler() {
+    if (!expenseId) return;
+    dispatch(expenseActions.deleteExpense(expenseId));
+
     navigation.goBack();
   }
 
