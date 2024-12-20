@@ -7,11 +7,13 @@ interface IconButtonProperties {
   name: IoniconsIconNames;
   onPress: () => void;
   color: string;
+  size?: number;
 }
 
 export default function IconButton({
   color,
   name,
+  size = 24,
   onPress,
 }: IconButtonProperties) {
   return (
@@ -19,7 +21,7 @@ export default function IconButton({
       style={({ pressed }) => pressed && styles.pressed}
       onPress={onPress}
     >
-      <Ionicons name={name} size={24} color={color} />
+      <Ionicons name={name} size={size} color={color} />
     </Pressable>
   );
 }

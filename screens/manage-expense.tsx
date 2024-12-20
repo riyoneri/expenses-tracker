@@ -77,6 +77,7 @@ export default function ManageExpense({
             name="trash"
             color={GlobalStyles.colors.error500}
             onPress={deleteExpenseHandler}
+            size={36}
           />
         </View>
       )}
