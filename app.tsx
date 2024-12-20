@@ -6,12 +6,14 @@ import {
   createStackNavigator,
 } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
+import { Provider } from "react-redux";
 
 import IconButton from "./components/ui/icon-button";
 import { GlobalStyles } from "./constants/styles";
 import AllExpensesScreen from "./screens/all-expenses.screen";
 import ManageExpense from "./screens/manage-expense";
 import RecentExpensesScreen from "./screens/recent-expenses.screen";
+import store from "./store/store";
 
 export type StackParameterList = {
   ExpensesOverview: undefined;
@@ -87,7 +89,7 @@ function ExpensesOverview({
 
 export default function App() {
   return (
-    <>
+    <Provider store={store}>
       <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
@@ -112,6 +114,6 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </Provider>
   );
 }
