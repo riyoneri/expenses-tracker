@@ -1,6 +1,8 @@
 import { PropsWithChildren } from "react";
 import { StyleSheet, View, ViewStyle } from "react-native";
 
+import { GlobalStyles } from "../constants/styles";
+
 interface ScreenWrapperProperties {
   style?: ViewStyle;
 }
@@ -17,5 +19,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 20,
+    backgroundColor: GlobalStyles.colors.primary800,
   },
 });
